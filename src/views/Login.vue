@@ -88,7 +88,14 @@ export default {
   methods: {
     async login() {
       try {
-        signInWithEmailAndPassword(auth, this.email, this.password);
+        let x = await signInWithEmailAndPassword(
+          auth,
+          this.email,
+          this.password
+        );
+        x._tokenResponse.idToken
+          ? localStorage.setItem("token", x._tokenResponse.idToken)
+          : localStorage.setItem("token", null);
         this.$router.push("/dashboard");
       } catch (err) {
         this.error = err.message;
