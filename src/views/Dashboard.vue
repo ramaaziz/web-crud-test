@@ -4,9 +4,16 @@
       <b-col>
         <div>
           <b-card no-body style="width: 100%">
-            <b-tabs class="tab" pills card vertical nav-wrapper-class="col-3">
+            <b-tabs
+              style="background-color: darkgrey"
+              class="tab"
+              pills
+              card
+              vertical
+              nav-wrapper-class="col-3"
+            >
               <b-tab title="Poster">
-                <div style="height: 100vh; width: 100%">
+                <div style="height: 100vh; width: 100%; overflow: scroll">
                   <div class="movie-grid">
                     <div class="movie" v-for="(movie, i) in movies" :key="i">
                       <div id="title" style="heigth: 30px">
@@ -38,8 +45,7 @@
                 </div>
                 <b-alert :show="alert" variant="success">{{ message }}</b-alert>
               </b-tab>
-              <b-tab title-link-class="tabs" title="Logout" @click="logout()">
-              </b-tab>
+              <b-tab title="Logout" @click="logout()"> </b-tab>
             </b-tabs>
           </b-card>
         </div>
@@ -184,12 +190,5 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-.tabs {
-  background-color: darkgray;
-}
-
-.btnActive {
-  color: grey;
 }
 </style>
