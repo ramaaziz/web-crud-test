@@ -21,11 +21,13 @@
                         alt=""
                       />
                       <p>Rating : {{ movie.vote_average }}</p>
-                      <div>
-                        <b-button @click="openModal(movie.id)">
+                      <div class="button-wrapper">
+                        <b-button size="sm" pill @click="openModal(movie.id)">
                           Add Rating</b-button
                         >
                         <b-button
+                          size="sm"
+                          pill
                           variant="danger"
                           @click="removeRating(movie.id)"
                           >Remove Vote</b-button
@@ -36,7 +38,8 @@
                 </div>
                 <b-alert :show="alert" variant="success">{{ message }}</b-alert>
               </b-tab>
-              <b-tab title="Logout" @click="logout()"> </b-tab>
+              <b-tab title-link-class="tabs" title="Logout" @click="logout()">
+              </b-tab>
             </b-tabs>
           </b-card>
         </div>
@@ -176,5 +179,17 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tabs {
+  background-color: darkgray;
+}
+
+.btnActive {
+  color: grey;
 }
 </style>
